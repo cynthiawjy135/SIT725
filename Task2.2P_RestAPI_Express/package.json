@@ -1,0 +1,22 @@
+{
+  "name": "task2.2p_restapi_express",
+  "version": "1.0.0",
+  "description": "This is my task 2.2P Project",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cynthiawjy135/SIT725.git"
+  },
+  "author": "Cynthia Wijaya",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cynthiawjy135/SIT725/issues"
+  },
+  "homepage": "https://github.com/cynthiawjy135/SIT725#readme",
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}

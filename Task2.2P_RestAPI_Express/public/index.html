@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+ 
+<html lang="en">
+<head>
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ 
+ <title>SIT 725 Task 2.2P REST API and Express</title>
+ <meta name="description" content="SIT725 Task 2.2P">
+ <meta name="author" content="SitePoint">
+ 
+ <meta property="og:title" content="SIT725 Task 2.2P">
+ <meta property="og:type" content="website">
+ <meta property="og:description" content="SIT725 Task 2.2P">
+ 
+ <!-- Compiled and minified CSS -->
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+ <!-- Compiled and minified JavaScript -->
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</head>
+ 
+<body>
+ <div class="container">
+    <div class="row">
+        <div class="col s12">
+            <h1 id="heading" class="center-align" style="color: #6a5acd;">SIMPLE CALCULATOR</h1>
+            <br><br>
+            <label for="num">Enter first number:</label>
+            <input type="text" id="num1" name="num1" required>
+            <label for="num">Enter second number:</label>
+            <input type="text" id="num2" name="num2" required>
+            <br><br>
+            <h5 id="result"></h5><br><br>
+            <h7 id="labelSavedRes" style="font-weight: bold; color: darkviolet;"></h7>
+            <p id="allCalculations"></p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s12 center-align">
+            <h5>Choose action:</h5><br>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s3">
+            <a class="waves-effect waves-light btn green" id="addButton">Add</a>
+        </div>
+        <div class="col s3">
+            <a class="waves-effect waves-light btn pink" id="subButton">Subtract</a>
+        </div>
+        <div class="col s3">
+            <a class="waves-effect waves-light btn blue" id="mulButton">Multiply</a>
+        </div>
+        <div class="col s3">
+            <a class="waves-effect waves-light btn" id="divButton">Divide</a>
+        </div>
+    </div>
+    <br><br>
+    <div class="row">
+        <div class="col s4"></div>
+        <div class="col s4">
+            <a class="waves-effect waves-light btn purple" id="saveButton">SAVE CALCULATION RESULT</a>
+        </div>
+        <div class="col s4"></div>
+    </div>
+ </div>
+</body>
+
+<script>
+    document.getElementById('addButton').addEventListener('click', function() {
+        const aa = parseFloat(document.getElementById('num1').value);
+        const bb = parseFloat(document.getElementById('num2').value);
+        
+        console.log(typeof(aa));
+        console.log(bb);
+        
+        const url = `/add?num1=${aa}&num2=${bb}`;
+        fetch(url)
+        .then(response => response.json())
+        .then(data => {
+        // Display the addition Result
+        console.log(data);
+        document.getElementById('result').innerText = data.myresult;
+        })
+        .catch(error => {
+            console.error('Error calculating numbers:', error);
+            document.getElementById('result').innerText = 'Error calculating numbers.';
+        });
+    });
+
+    document.getElementById('subButton').addEventListener('click', function() {
+        const aa = parseFloat(document.getElementById('num1').value);
+        const bb = parseFloat(document.getElementById('num2').value);
+        
+        console.log(typeof(aa));
+        console.log(bb);
+        
+        const url = `/sub?num1=${aa}&num2=${bb}`;
+        fetch(url)
+        .then(response => response.json())
+        .then(data => {
+        // Display the subtraction Result
+        console.log(data);
+        document.getElementById('result').innerText = data.myresult;
+        })
+        .catch(error => {
+            console.error('Error calculating numbers:', error);
+            document.getElementById('result').innerText = 'Error calculating numbers.';
+        });
+    });
+
+    document.getElementById('mulButton').addEventListener('click', function() {
+        const aa = parseFloat(document.getElementById('num1').value);
+        const bb = parseFloat(document.getElementById('num2').value);
+        
+        console.log(typeof(aa));
+        console.log(bb);
+        
+        const url = `/mul?num1=${aa}&num2=${bb}`;
+        fetch(url)
+        .then(response => response.json())
+        .then(data => {
+        // Display the multiplication Result
+        console.log(data);
+        document.getElementById('result').innerText = data.myresult;
+        })
+        .catch(error => {
+            console.error('Error calculating numbers:', error);
+            document.getElementById('result').innerText = 'Error calculating numbers.';
+        });
+    });
+
+    document.getElementById('divButton').addEventListener('click', function() {
+        const aa = parseFloat(document.getElementById('num1').value);
+        const bb = parseFloat(document.getElementById('num2').value);
+        
+        console.log(typeof(aa));
+        console.log(bb);
+        
+        const url = `/div?num1=${aa}&num2=${bb}`;
+        fetch(url)
+        .then(response => response.json())
+        .then(data => {
+        // Display the division Result
+        console.log(data);
+        document.getElementById('result').innerText = data.myresult;
+        })
+        .catch(error => {
+            console.error('Error calculating numbers:', error);
+            document.getElementById('result').innerText = 'Error calculating numbers.';
+        });
+    });
+
+    document.getElementById('saveButton').addEventListener('click', function() {
+        var dataRes = {
+            myCalculation: document.getElementById('result').innerText
+        }
+
+        console.log("The result data:"+document.getElementById('result').innerText);
+
+        fetch('/save', {
+                method: 'POST', 
+                headers: {
+                    'Content-Type': 'application/json' 
+                },
+                body: JSON.stringify(dataRes) 
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                document.getElementById('labelSavedRes').innerText = "Saved Calculations (POST method)";
+                document.getElementById('allCalculations').innerText = data.calculationResults.join('\n');
+            })
+            .catch(error => {
+                console.error('Error saving result:', error);
+            });
+    });
+
+ </script>
+</html>
