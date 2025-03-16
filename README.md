@@ -8,4 +8,4 @@ This is SIT725 Applied Software Engineering Repository for all task in T1 2025.
 * Express Js
 
 ## **Task 1.4P Intro to Programming**
-Project folder For task 1.4P can be accessed in folder Week1.
+All of the code for task 1.4P can be accessed in folder Week1.
