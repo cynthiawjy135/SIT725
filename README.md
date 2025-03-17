@@ -26,3 +26,11 @@ All the code for this task can be accessed in folder Task2.2P_RestAPI_Express. I
    node -v
    npm -v
    ```
+
+### Run the Program ###
+1. Open terminal, and run this code
+   ```
+   npm run start
+   ```
+2. Open browser, and open the http://localhost:3000/
+   
