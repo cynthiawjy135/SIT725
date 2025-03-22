@@ -1,0 +1,22 @@
+{
+  "name": "task3.2p_bootstrapping_express",
+  "version": "1.0.0",
+  "description": "This is Task 3.2P using bootstrapping express materialize",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/cynthiawjy135/SIT725.git"
+  },
+  "author": "Cynthia Wijaya",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cynthiawjy135/SIT725/issues"
+  },
+  "homepage": "https://github.com/cynthiawjy135/SIT725#readme",
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
