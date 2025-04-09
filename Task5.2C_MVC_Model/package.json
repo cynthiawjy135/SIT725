@@ -1,0 +1,19 @@
+{
+  "name": "task4.2p_database",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cynthiawjy135/SIT725.git"
+  },
+  "author": "Cynthia Wijaya",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.2",
+    "mongoose": "^8.13.1"
+  }
+}
